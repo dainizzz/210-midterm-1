@@ -229,12 +229,17 @@ public:
 int main() {
     cout << MIN_NR + MIN_LS + MAX_NR + MAX_LS;  // dummy statement to avoid compiler warning
 
-    // TODO: Create a doubly liked list object and add values to it
+    // Declaring a DoublyLinkedList objected with the variable name list
     DoublyLinkedList list;
 
-
+    // Starting
+    for (int i = 0; i < 10; i++) {
+        list.push_back(i+1);
+    }
 
     // TODO: Demonstrate use of the class method every_other_element(); -- use regular print method as comparison
+    list.print(); // Outputs 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+    list.every_other_element(); // Outputs 1, 3, 5, 7, 9
     
     return 0;
 }
