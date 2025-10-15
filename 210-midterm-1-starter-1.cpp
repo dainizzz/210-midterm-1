@@ -1,5 +1,7 @@
-// TODO: Add comments for every line explaining what's happening
+// iostream is #include'd so we're able to output to the console
 #include <iostream>
+// By using namespace std, we can utilize the classes/functions/objects in the C++ Standard Libray without having to
+//use the std:: scope resolution operator before every usage.
 using namespace std;
 
 const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
@@ -203,7 +205,6 @@ public:
         cout << endl;
     }
 
-    // TODO: Implement this method
     // The below function will output every other element of the doubly linked list. The return type is void since it
     // only outputs the elements; it doesn't need to return anything.
     void every_other_element() {
@@ -218,10 +219,13 @@ public:
         // The condition below is equivalent to saying while cur != nullptr. When cur points to nullptr, we have reached
         // the end of the linked list since tail->next is nullptr.
         while (cur) {
-            // If outputElem is true, then...
+            // If outputElem is true, that means we are on the correct element, i.e. the first, third, fifth, etc.
             if (outputElem)
-                cout << cur->data << " "; // we output the value of data. If it is false, nothing happens, so we don't need an else statement.
+                // The value of data for the current node is outputted. After that, a space is outputted.
+                cout << cur->data << " ";
+            // cur is updated to point to where its next pointer points, i.e. to the next node in the doubly linked list
             cur = cur->next;
+            // outputElem is updated to be false if it was currently true and true if it was currently false
             outputElem = !outputElem;
         }
     }
@@ -229,6 +233,7 @@ public:
 
 // This program is the driver, demonstrating the use of the DoublyLinkedList class.
 int main() {
+    // This outputs 134
     cout << MIN_NR + MIN_LS + MAX_NR + MAX_LS;  // dummy statement to avoid compiler warning
 
     // Declaring a DoublyLinkedList objected with the variable name list
