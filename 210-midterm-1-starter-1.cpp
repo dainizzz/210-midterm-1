@@ -4,28 +4,47 @@
 //use the std:: scope resolution operator before every usage.
 using namespace std;
 
+// These are constants that are utilized in main()
 const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
 
+// The DoublyLinkedList class is an implementation of the doubly linked list data structure
 class DoublyLinkedList {
+// The below data members and struct are private, meaning they can only be accessed directly by the DoublyLinkedList
+// class.
 private:
+    // The Node struct represents a node in a doubly linked list
     struct Node {
+        // The actual data in the node is of type int
         int data;
+        // prev is a pointer to the previous node in the doubly linked list
         Node* prev;
+        // next is a pointer to the next node in the doubly linked list
         Node* next;
+        // This is a constructor for the Node struct with default values of nullptr for prev and next.
         Node(int val, Node* p = nullptr, Node* n = nullptr) {
-            data = val; 
+            // The value of data is updated to val
+            data = val;
+            // The pointer prev is updated to point to p
             prev = p;
+            // The pointer next is updated to point to n
             next = n;
         }
     };
 
+    // This points to the head node of the doubly linked list, which is where the list begins
     Node* head;
+    // This points to the tail node of the doubly linked list, which is where the list ends
     Node* tail;
 
+// The following code is accessible outside of the DoublyLinkedList class
 public:
+    // This is the default constructor for the DoublyLinkedList class. When an object is created, the head and tail
+    // pointers are set to nullptr.
     DoublyLinkedList() { head = nullptr; tail = nullptr; }
 
+    // This method inserts a node with a data value of value at the position position
     void insert_after(int value, int position) {
+        // If the position passed in the argument is
         if (position < 0) {
             cout << "Position must be >= 0." << endl;
             return;
