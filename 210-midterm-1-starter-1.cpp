@@ -1,3 +1,4 @@
+// TODO: Add comments for every line explaining what's happening
 #include <iostream>
 using namespace std;
 
@@ -201,11 +202,31 @@ public:
         }
         cout << endl;
     }
+
+    // TODO: Implement this method
+    // The below function will output every other element of the doubly linked list. The return type is void since it
+    // only outputs the elements; it doesn't need to return anything.
+    void every_other_element() {
+        // outputs the data structure starting with the first element
+        // skips the 2nd element
+        // outputs the third element, etc.
+
+        // Can either use a counter var and check whether it's even or odd
+        // or can use a bool var that gets set to !boolVar as we go through
+        // the object to determine whether it should be output
+
+        // Need a cur node for traversal
+
+        // Traverse the linked list forward:
+        //
+    }
 };
 
 int main() {
     cout << MIN_NR + MIN_LS + MAX_NR + MAX_LS;  // dummy statement to avoid compiler warning
 
+    // TODO: Create a doubly liked list object and add values to it
+    // TODO: Demonstrate use of the class method every_other_element();
     
     return 0;
 }
