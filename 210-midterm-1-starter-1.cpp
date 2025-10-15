@@ -48,32 +48,48 @@ public:
         if (position < 0) {
             // This outputs "Position must be >= 0." and a line break
             cout << "Position must be >= 0." << endl;
-            // Nothing is returned and the function finis
+            // Nothing is returned and the function finishes executing
             return;
         }
 
+        // A pointer newNode is initialized pointing to a new Node struct with the data value value
         Node* newNode = new Node(value);
+        // If there is no head, the list is empty
         if (!head) {
+            // head and tail both point to the new node
             head = tail = newNode;
+            // Nothing is returned and the function finishes executing
             return;
         }
 
+        // A pointer of type Node, temp, is initialized pointing where the head node points
         Node* temp = head;
+        // Iterating until the position in the argument is reached
         for (int i = 0; i < position && temp; ++i)
+            // Updating temp to point to the next node in the doubly linked list
             temp = temp->next;
 
+        // If the end of the list was reached without the position being reached, the position was not in the list
         if (!temp) {
             cout << "Position exceeds list size. Node not inserted.\n";
+            // newNode is deleted to avoid memory leaks
             delete newNode;
             return;
         }
 
+        // This runs if the correct position was found. The new node is being inserted.
+        // newNode's next pointer points where temp's next pointer
         newNode->next = temp->next;
+        // newNode's prev pointer points to temp
         newNode->prev = temp;
+        // If there was a node after temp, i.e. after the current positon
         if (temp->next)
+            // The prev pointer for that node after temp is updated to be newNode
             temp->next->prev = newNode;
         else
+            // If not, that means newNode is the new end of the list, and tail is updated to point to the new node
             tail = newNode;
+        // temp's next pointer now points to newNode, and the insertion is complete
         temp->next = newNode;
     }
 
