@@ -218,28 +218,35 @@ public:
         // The condition below is equivalent to saying while cur != nullptr. When cur points to nullptr, we have reached
         // the end of the linked list since tail->next is nullptr.
         while (cur) {
+            // If outputElem is true, then...
             if (outputElem)
-                cout << cur->data << " ";
+                cout << cur->data << " "; // we output the value of data. If it is false, nothing happens, so we don't need an else statement.
             cur = cur->next;
             outputElem = !outputElem;
         }
     }
 };
 
+// This program is the driver, demonstrating the use of the DoublyLinkedList class.
 int main() {
     cout << MIN_NR + MIN_LS + MAX_NR + MAX_LS;  // dummy statement to avoid compiler warning
 
     // Declaring a DoublyLinkedList objected with the variable name list
     DoublyLinkedList list;
 
-    // Starting
+    // Looping until the local variable i, which was initialized with the value 0, is no longer less than 10. On each
+    // loop, the value of i increases by 1.
     for (int i = 0; i < 10; i++) {
+        // Inside the for loop, the value i + 1 is being passed as an argument to the method push_back(), thus adding a
+        // new node with a data value of i + 1 to the end of the doubly linked list.
         list.push_back(i+1);
     }
 
-    // TODO: Demonstrate use of the class method every_other_element(); -- use regular print method as comparison
-    list.print(); // Outputs 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
-    list.every_other_element(); // Outputs 1, 3, 5, 7, 9
-    
+    // The print() method is called on list. It outputs the following: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+    list.print(); //
+    // The every_other_element() method is called on list. It outputs the following: 1, 3, 5, 7, 9
+    list.every_other_element();
+
+    // The return type of main is int, so 0 is returned at the end of the main function.
     return 0;
 }
