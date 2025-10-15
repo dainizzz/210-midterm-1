@@ -44,9 +44,11 @@ public:
 
     // This method inserts a node with a data value of value at the position position
     void insert_after(int value, int position) {
-        // If the position passed in the argument is
+        // If the position passed in the argument is less than 0, it's not a valid position
         if (position < 0) {
+            // This outputs "Position must be >= 0." and a line break
             cout << "Position must be >= 0." << endl;
+            // Nothing is returned and the function finis
             return;
         }
 
