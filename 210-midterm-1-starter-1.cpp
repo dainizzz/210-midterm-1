@@ -93,16 +93,23 @@ public:
         temp->next = newNode;
     }
 
+    // This method searches for a value and removes it
     void delete_val(int value) {
+        // If the lsit is empty, return
         if (!head) return;
 
+        // Setting up a Node pointer for traversing the doubly linked list
         Node* temp = head;
-        
+
+        // While the value hasn't been found and the end of the list hasn't been reached
         while (temp && temp->data != value)
+            // continue traversing the list
             temp = temp->next;
 
+        // If the value wasn't found and the end was reached, return
         if (!temp) return; 
 
+        // Otherwise, the pointers of the previous and consequent nodes to temp are updated to each other
         if (temp->prev)
             temp->prev->next = temp->next;
         else
@@ -113,9 +120,11 @@ public:
         else
             tail = temp->prev; 
 
+        // Once all the connections are made, temp is deleted.
         delete temp;
     }
 
+    // This method searches at the position pos and then deletes it.
     void delete_pos(int pos) {
         if (!head) {
             cout << "List is empty." << endl;
@@ -153,6 +162,7 @@ public:
         delete temp;
     }
 
+    // This method adds a node to the end of the doubly linked list
     void push_back(int v) {
         Node* newNode = new Node(v);
         if (!tail)
@@ -163,7 +173,8 @@ public:
             tail = newNode;
         }
     }
-    
+
+    // This method adds a node to the beginning of the doubly linked list
     void push_front(int v) {
         Node* newNode = new Node(v);
         if (!head)
@@ -174,7 +185,8 @@ public:
             head = newNode;
         }
     }
-    
+
+    // This method removes a node from the beginning of the doubly linked list
     void pop_front() {
 
         if (!head) {
@@ -193,6 +205,7 @@ public:
         delete temp;
     }
 
+    // This method removes a node from the end of the doubly linked list
     void pop_back() {
         if (!tail) {
             cout << "List is empty." << endl;
@@ -209,6 +222,7 @@ public:
         delete temp;
     }
 
+    // The destructor deletes every element in the doubly linked list, starting at the head
     ~DoublyLinkedList() {
         while (head) {
             Node* temp = head;
@@ -216,6 +230,8 @@ public:
             delete temp;
         }
     }
+
+    // This outputs the data value of each node in the linked list, starting at the head
     void print() {
         Node* current = head;
         if (!current) {
@@ -229,6 +245,7 @@ public:
         cout << endl;
     }
 
+    // This outputs the data value of each node in the linked list in reverse, starting at the tail
     void print_reverse() {
         Node* current = tail;
         if (!current) { 
